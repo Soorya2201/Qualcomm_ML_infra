@@ -52,7 +52,7 @@ class MJPEGSource:
 
         self._jpeg = None
         self._seq = 0
-        self._last_seq_read = -1
+        self._last_seq_read = 0   # frames are numbered from 1; 0 means "none read yet"
         self._lock = threading.Lock()
         self._new_frame = threading.Condition(self._lock)
         self._stop = threading.Event()
